@@ -7,11 +7,12 @@ Original file is located at
     https://colab.research.google.com/drive/1gEuudZsEXE7ps2Hi-ZsYfagtuwj8XJ3c
 """
 
-import numpy as np
 import json
-from collections import Counter
 import pickle
+from collections import Counter
+
 import matplotlib.pyplot as plt
+import numpy as np
 
 with open("data/pp_authors.txt", "rb") as fp:  # Unpickling
     pp_authors = pickle.load(fp)
@@ -23,7 +24,7 @@ new = []
 for pp in pp_authors:
     list_aff = []
     for author in pp:
-        aff_full = author[author.find("(") + 1 : author.find("')")].lower()
+        aff_full = author[author.find("(") + 1: author.find("')")].lower()
         for aff_nml in unis:
             if aff_full in unis[aff_nml] and aff_nml not in list_aff:
                 list_aff.append(aff_nml)

@@ -1,5 +1,5 @@
-import pickle
 import json
+import pickle
 
 with open("pp_authors.txt", "rb") as fp:  # Unpickling
     pp_authors = pickle.load(fp)
@@ -9,7 +9,7 @@ unis = json.load(open("convert.json"))
 new = []
 for pp in pp_authors:
     for author in pp:
-        aff_full = author[author.find("(") + 1 : author.find("')")].lower()
+        aff_full = author[author.find("(") + 1: author.find("')")].lower()
         is_in = False
         if aff_full in unis.keys():
             aff_name = unis[aff_full]

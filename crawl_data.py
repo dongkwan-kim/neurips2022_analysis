@@ -1,6 +1,7 @@
+import pickle
+
 import requests
 from bs4 import BeautifulSoup
-import pickle
 
 page = requests.get("https://nips.cc/Conferences/2021/AcceptedPapersInitial")
 soup = BeautifulSoup(page.text, "html.parser")
@@ -21,7 +22,7 @@ for id in url_id:
 
     for author in pp_soup.find_all("button", {"class": "btn btn-default"}):
         at_id = author.get("onclick")
-        at_id = at_id[at_id.find("('") + 2 : at_id.find("')")]
+        at_id = at_id[at_id.find("('") + 2: at_id.find("')")]
         at_soup = BeautifulSoup(
             requests.get("https://neurips.cc/Conferences/2021/Schedule?showSpeaker=" + at_id).text, "html.parser"
         )
