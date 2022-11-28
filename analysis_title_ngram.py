@@ -38,6 +38,6 @@ def get_ngrams(text, ngram_from=2, ngram_to=None, n=200, max_features=500):
     return words_freq[:n]
 
 
-ngrams = get_ngrams(titles, ngram_from=2)
+ngrams = get_ngrams(titles, ngram_from=3)
 for tk, freq in ngrams:
     print(f"{tk}\t{freq}")
